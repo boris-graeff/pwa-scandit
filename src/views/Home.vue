@@ -5,6 +5,7 @@
 
     {{ scan }}
 
+    <audio ref="audio" src="/scan.mp3" />
   </div>
 </template>
 
@@ -38,6 +39,7 @@ export default {
     this.barcodePicker.applyScanSettings(scanSettings);
 
     this.barcodePicker.onScan((scan) => {
+      this.$refs.audio.play();
       this.scan = scan.barcodes;
     });
   },
